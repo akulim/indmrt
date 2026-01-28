@@ -1,271 +1,154 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<html>
 <title>Milka | Urban Data Science Portfolio</title>
 
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 
 <style>
-:root {
-  --bg-main: #f5f7f7;
-  --bg-card: #ffffff;
-  --accent: #6fbfb5;
-  --accent-soft: #9fdad2;
-  --text-main: #1f2d2b;
-  --text-muted: #5f7f7a;
+body,h1,h2,h3,h4,h5,h6 {
+  font-family: "Raleway", sans-serif;
 }
 
-* {
-  box-sizing: border-box;
-  font-family: "Raleway", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+:root{
+  --accent:#6fbfb5;
+  --accent-soft:#a7ddd6;
 }
 
-body {
-  margin: 0;
-  background: var(--bg-main);
-  color: var(--text-main);
-  line-height: 1.6;
-}
-
-a {
+.accent-text{
   color: var(--accent);
-  text-decoration: none;
 }
 
-a:hover {
-  text-decoration: underline;
-}
-
-/* Header */
-header {
-  padding: 4rem 2rem 3rem;
-  text-align: center;
-  border-bottom: 1px solid #e3eeee;
-  background: #ffffff;
-}
-
-header h1 {
-  font-size: 2.6rem;
-  margin-bottom: 0.4rem;
-  letter-spacing: 0.5px;
-}
-
-header p {
-  color: var(--text-muted);
-  max-width: 760px;
-  margin: auto;
-  font-size: 1.05rem;
-}
-
-/* Layout */
-.container {
-  max-width: 1150px;
-  margin: auto;
-  padding: 2.5rem 2rem;
-}
-
-section {
-  margin-bottom: 3.5rem;
-}
-
-h2 {
-  font-size: 1.6rem;
-  margin-bottom: 1.4rem;
-  padding-left: 0.75rem;
+.section-title{
   border-left: 5px solid var(--accent);
-  letter-spacing: 0.3px;
-}
-
-/* Grid */
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.6rem;
-}
-
-/* Cards */
-.card {
-  background: var(--bg-card);
-  padding: 1.4rem 1.5rem;
-  border-radius: 10px;
-  border: 1px solid #e5f1ef;
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
-}
-
-.card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 18px rgba(0,0,0,0.05);
-}
-
-.card h3 {
-  margin-top: 0;
-  margin-bottom: 0.4rem;
-  color: #2f6f69;
-  font-size: 1.1rem;
-}
-
-.card p {
-  color: var(--text-muted);
-  font-size: 0.95rem;
-}
-
-/* Tags */
-.tags {
-  margin-top: 0.9rem;
-}
-
-.tag {
-  display: inline-block;
-  background: rgba(111, 191, 181, 0.15);
-  color: #2f6f69;
-  padding: 0.25rem 0.65rem;
-  border-radius: 999px;
-  font-size: 0.75rem;
-  margin-right: 0.35rem;
-  margin-bottom: 0.35rem;
-}
-
-/* Skills */
-.skills {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.6rem;
-}
-
-.skill {
-  background: rgba(159, 218, 210, 0.18);
-  color: #2f6f69;
-  padding: 0.45rem 0.85rem;
-  border-radius: 6px;
-  font-size: 0.85rem;
-}
-
-/* Footer */
-footer {
-  text-align: center;
-  padding: 2.5rem 1rem;
-  color: var(--text-muted);
-  font-size: 0.85rem;
-  border-top: 1px solid #e3eeee;
-  background: #ffffff;
+  padding-left: 12px;
+  margin-bottom: 20px;
 }
 </style>
 </head>
 
-<body>
+<body class="w3-light-grey w3-content" style="max-width:1400px">
 
-<header>
-  <h1>Milka</h1>
-  <p>
-    Master’s student in <strong>Urban Data Science</strong> with interests in  
-    <strong>data analytics, GIS, climate & policy-driven insights</strong>.  
-    Currently seeking <strong>Data Analyst / Data Science internships</strong>.
+<!-- HEADER -->
+<div class="w3-container w3-white w3-center w3-padding-64">
+  <h1><b>Milka</b></h1>
+  <p class="w3-large w3-text-grey" style="max-width:800px;margin:auto;">
+    Master’s student in <b>Urban Data Science</b> with interests in 
+    <b>data analytics, GIS, climate & policy-driven insights</b>.  
+    Currently seeking <b>Data Analyst / Data Science internships</b>.
   </p>
-</header>
+</div>
 
-<div class="container">
+<!-- MAIN CONTENT -->
+<div class="w3-container w3-padding-32">
 
-  <!-- Featured Projects -->
-  <section>
-    <h2>Featured Projects</h2>
-    <div class="grid">
+  <!-- FEATURED PROJECTS -->
+  <div class="w3-container w3-margin-bottom">
+    <h3 class="section-title"><b>Projects</b></h3>
 
-      <div class="card">
-        <h3>Urban Mobility & Transaction Analysis</h3>
-        <p>
-          Analyzed transaction behavior, agent performance, and regional patterns
-          using dashboards, KPIs, and time-series analysis.
-        </p>
-        <div class="tags">
-          <span class="tag">Python</span>
-          <span class="tag">SQL</span>
-          <span class="tag">Dashboard</span>
-          <span class="tag">Time Series</span>
+    <div class="w3-row-padding">
+
+      <div class="w3-half w3-margin-bottom">
+        <div class="w3-white w3-padding w3-round-large">
+          <h4 class="accent-text"><b>Urban Mobility & Transaction Analysis</b></h4>
+          <p>
+            Analyzed transaction behavior, agent performance, and regional patterns
+            using dashboards, KPIs, and time-series analysis.
+          </p>
+          <p class="w3-small w3-text-grey">
+            Python · SQL · Dashboard · Time Series
+          </p>
         </div>
       </div>
 
-      <div class="card">
-        <h3>Agent Performance Quadrant Dashboard</h3>
-        <p>
-          Built multi-tab dashboards to track agent movement across performance
-          quadrants with retention metrics and geographic breakdowns.
-        </p>
-        <div class="tags">
-          <span class="tag">Data Visualization</span>
-          <span class="tag">KPIs</span>
-          <span class="tag">Business Analytics</span>
+      <div class="w3-half w3-margin-bottom">
+        <div class="w3-white w3-padding w3-round-large">
+          <h4 class="accent-text"><b>Agent Performance Quadrant Dashboard</b></h4>
+          <p>
+            Built multi-tab dashboards to track agent movement across performance
+            quadrants with retention metrics and geographic breakdowns.
+          </p>
+          <p class="w3-small w3-text-grey">
+            Data Visualization · KPIs · Business Analytics
+          </p>
         </div>
       </div>
 
     </div>
-  </section>
+  </div>
 
   <!-- GIS -->
-  <section>
-    <h2>GIS & Spatial Analysis</h2>
-    <div class="grid">
+  <div class="w3-container w3-margin-bottom">
+    <h3 class="section-title"><b>GIS & Spatial Analysis</b></h3>
 
-      <div class="card">
-        <h3>GIS StoryMap</h3>
-        <p>
-          Narrative-driven spatial analysis combining maps, data, and storytelling
-          to explain urban or environmental patterns.
-        </p>
-        <p><a href="#">View StoryMap →</a></p>
-        <div class="tags">
-          <span class="tag">GIS</span>
-          <span class="tag">Spatial Data</span>
-          <span class="tag">Urban Analysis</span>
+    <div class="w3-row-padding">
+      <div class="w3-half">
+        <div class="w3-white w3-padding w3-round-large">
+          <h4 class="accent-text"><b>GIS StoryMap</b></h4>
+          <p>
+            Narrative-driven spatial analysis combining maps, data, and storytelling
+            to explain urban or environmental patterns.
+          </p>
+          <p>
+            <a href="#" class="accent-text"><b>View StoryMap →</b></a>
+          </p>
+          <p class="w3-small w3-text-grey">
+            GIS · Spatial Data · Urban Analysis
+          </p>
         </div>
       </div>
-
     </div>
-  </section>
+  </div>
 
-  <!-- Streamlit -->
-  <section>
-    <h2>Interactive Simulations</h2>
-    <div class="grid">
+  <!-- STREAMLIT -->
+  <div class="w3-container w3-margin-bottom">
+    <h3 class="section-title"><b>Interactive Simulations</b></h3>
 
-      <div class="card">
-        <h3>Streamlit Data Simulation</h3>
-        <p>
-          Interactive simulation built with Streamlit to explore scenarios,
-          assumptions, and policy-relevant outcomes.
-        </p>
-        <p><a href="#">Launch App →</a></p>
-        <div class="tags">
-          <span class="tag">Streamlit</span>
-          <span class="tag">Python</span>
-          <span class="tag">Simulation</span>
+    <div class="w3-row-padding">
+      <div class="w3-half">
+        <div class="w3-white w3-padding w3-round-large">
+          <h4 class="accent-text"><b>Streamlit Data Simulation</b></h4>
+          <p>
+            Interactive simulation built with Streamlit to explore scenarios,
+            assumptions, and policy-relevant outcomes.
+          </p>
+          <p>
+            <a href="#" class="accent-text"><b>Launch App →</b></a>
+          </p>
+          <p class="w3-small w3-text-grey">
+            Streamlit · Python · Simulation
+          </p>
         </div>
       </div>
-
     </div>
-  </section>
+  </div>
 
-  <!-- Skills -->
-  <section>
-    <h2>Skills</h2>
-    <div class="skills">
-      <span class="skill">Python</span>
-      <span class="skill">SQL</span>
-      <span class="skill">Pandas</span>
-      <span class="skill">Data Visualization</span>
-      <span class="skill">GIS</span>
-      <span class="skill">Spatial Analysis</span>
-      <span class="skill">Dashboarding</span>
-      <span class="skill">Policy & Climate Data</span>
+  <!-- SKILLS -->
+  <div class="w3-container">
+    <h3 class="section-title"><b>Skills</b></h3>
+
+    <div class="w3-white w3-padding w3-round-large">
+      <span class="w3-tag w3-light-grey w3-margin-right w3-margin-bottom">Python</span>
+      <span class="w3-tag w3-light-grey w3-margin-right w3-margin-bottom">SQL</span>
+      <span class="w3-tag w3-light-grey w3-margin-right w3-margin-bottom">Pandas</span>
+      <span class="w3-tag w3-light-grey w3-margin-right w3-margin-bottom">Data Visualization</span>
+      <span class="w3-tag w3-light-grey w3-margin-right w3-margin-bottom">GIS</span>
+      <span class="w3-tag w3-light-grey w3-margin-right w3-margin-bottom">Spatial Analysis</span>
+      <span class="w3-tag w3-light-grey w3-margin-right w3-margin-bottom">Dashboarding</span>
+      <span class="w3-tag w3-light-grey w3-margin-right w3-margin-bottom">Policy & Climate Data</span>
     </div>
-  </section>
+  </div>
 
 </div>
 
-<footer>
+<!-- FOOTER -->
+<div class="w3-black w3-center w3-padding-24">
   © 2026 · Built with HTML & CSS · Open to Data & Analytics Internships
-</footer>
+</div>
 
 </body>
 </html>
