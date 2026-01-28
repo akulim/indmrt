@@ -1,139 +1,157 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Milka | Urban Data Science Portfolio</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Milka | Urban Data Science Portfolio</title>
 
-  <style>
-    :root {
-      --bg-main: #0f1c1a;
-      --bg-card: #162826;
-      --accent: #6fd1c6;
-      --accent-soft: #9be3db;
-      --text-main: #e6f2f1;
-      --text-muted: #a7c7c3;
-    }
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 
-    * {
-      box-sizing: border-box;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    }
+<style>
+:root {
+  --bg-main: #f5f7f7;
+  --bg-card: #ffffff;
+  --accent: #6fbfb5;
+  --accent-soft: #9fdad2;
+  --text-main: #1f2d2b;
+  --text-muted: #5f7f7a;
+}
 
-    body {
-      margin: 0;
-      background: linear-gradient(180deg, #0f1c1a, #0b1514);
-      color: var(--text-main);
-      line-height: 1.6;
-    }
+* {
+  box-sizing: border-box;
+  font-family: "Raleway", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
 
-    a {
-      color: var(--accent);
-      text-decoration: none;
-    }
+body {
+  margin: 0;
+  background: var(--bg-main);
+  color: var(--text-main);
+  line-height: 1.6;
+}
 
-    a:hover {
-      text-decoration: underline;
-    }
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
 
-    header {
-      padding: 5rem 2rem 4rem;
-      text-align: center;
-    }
+a:hover {
+  text-decoration: underline;
+}
 
-    header h1 {
-      font-size: 2.8rem;
-      margin-bottom: 0.5rem;
-    }
+/* Header */
+header {
+  padding: 4rem 2rem 3rem;
+  text-align: center;
+  border-bottom: 1px solid #e3eeee;
+  background: #ffffff;
+}
 
-    header p {
-      color: var(--text-muted);
-      max-width: 700px;
-      margin: auto;
-      font-size: 1.1rem;
-    }
+header h1 {
+  font-size: 2.6rem;
+  margin-bottom: 0.4rem;
+  letter-spacing: 0.5px;
+}
 
-    .container {
-      max-width: 1100px;
-      margin: auto;
-      padding: 2rem;
-    }
+header p {
+  color: var(--text-muted);
+  max-width: 760px;
+  margin: auto;
+  font-size: 1.05rem;
+}
 
-    section {
-      margin-bottom: 4rem;
-    }
+/* Layout */
+.container {
+  max-width: 1150px;
+  margin: auto;
+  padding: 2.5rem 2rem;
+}
 
-    h2 {
-      font-size: 1.8rem;
-      margin-bottom: 1.5rem;
-      border-left: 4px solid var(--accent);
-      padding-left: 0.75rem;
-    }
+section {
+  margin-bottom: 3.5rem;
+}
 
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.5rem;
-    }
+h2 {
+  font-size: 1.6rem;
+  margin-bottom: 1.4rem;
+  padding-left: 0.75rem;
+  border-left: 5px solid var(--accent);
+  letter-spacing: 0.3px;
+}
 
-    .card {
-      background: var(--bg-card);
-      padding: 1.5rem;
-      border-radius: 14px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.25);
-      transition: transform 0.2s ease;
-    }
+/* Grid */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.6rem;
+}
 
-    .card:hover {
-      transform: translateY(-4px);
-    }
+/* Cards */
+.card {
+  background: var(--bg-card);
+  padding: 1.4rem 1.5rem;
+  border-radius: 10px;
+  border: 1px solid #e5f1ef;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
 
-    .card h3 {
-      margin-top: 0;
-      color: var(--accent-soft);
-    }
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.05);
+}
 
-    .card p {
-      color: var(--text-muted);
-      font-size: 0.95rem;
-    }
+.card h3 {
+  margin-top: 0;
+  margin-bottom: 0.4rem;
+  color: #2f6f69;
+  font-size: 1.1rem;
+}
 
-    .tags {
-      margin-top: 1rem;
-    }
+.card p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
 
-    .tag {
-      display: inline-block;
-      background: rgba(111, 209, 198, 0.15);
-      color: var(--accent);
-      padding: 0.25rem 0.6rem;
-      border-radius: 999px;
-      font-size: 0.75rem;
-      margin-right: 0.4rem;
-      margin-bottom: 0.4rem;
-    }
+/* Tags */
+.tags {
+  margin-top: 0.9rem;
+}
 
-    .skills {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.75rem;
-    }
+.tag {
+  display: inline-block;
+  background: rgba(111, 191, 181, 0.15);
+  color: #2f6f69;
+  padding: 0.25rem 0.65rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  margin-right: 0.35rem;
+  margin-bottom: 0.35rem;
+}
 
-    .skill {
-      background: rgba(155, 227, 219, 0.15);
-      color: var(--accent-soft);
-      padding: 0.4rem 0.8rem;
-      border-radius: 8px;
-      font-size: 0.85rem;
-    }
+/* Skills */
+.skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
 
-    footer {
-      text-align: center;
-      padding: 3rem 1rem;
-      color: var(--text-muted);
-      font-size: 0.85rem;
-    }
-  </style>
+.skill {
+  background: rgba(159, 218, 210, 0.18);
+  color: #2f6f69;
+  padding: 0.45rem 0.85rem;
+  border-radius: 6px;
+  font-size: 0.85rem;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 2.5rem 1rem;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  border-top: 1px solid #e3eeee;
+  background: #ffffff;
+}
+</style>
 </head>
 
 <body>
@@ -141,8 +159,8 @@
 <header>
   <h1>Milka</h1>
   <p>
-    Master’s student in <strong>Urban Data Science</strong>  
-    with interests in <strong>data analytics, GIS, climate & policy-driven insights</strong>.  
+    Master’s student in <strong>Urban Data Science</strong> with interests in  
+    <strong>data analytics, GIS, climate & policy-driven insights</strong>.  
     Currently seeking <strong>Data Analyst / Data Science internships</strong>.
   </p>
 </header>
@@ -192,7 +210,7 @@
       <div class="card">
         <h3>GIS StoryMap</h3>
         <p>
-          A narrative-driven spatial analysis combining maps, data, and storytelling
+          Narrative-driven spatial analysis combining maps, data, and storytelling
           to explain urban or environmental patterns.
         </p>
         <p><a href="#">View StoryMap →</a></p>
