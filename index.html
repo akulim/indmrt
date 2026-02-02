@@ -9,6 +9,7 @@
 :root {
   --bg-main: #0f1c1a;
   --bg-card: #162826;
+  --bg-soft: #112221;
   --accent: #6fd1c6;
   --accent-soft: #9be3db;
   --text-main: #e6f2f1;
@@ -67,16 +68,22 @@ section {
 
 h2 {
   font-size: 1.8rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.2rem;
   border-left: 4px solid var(--accent);
   padding-left: 0.75rem;
 }
 
-/* ---------- FILTER ---------- */
+/* ---------- FILTER BAR (VISIBLE FIX) ---------- */
+.filter-bar {
+  background: var(--bg-soft);
+  border-radius: 14px;
+  padding: 1rem;
+  margin-bottom: 2rem;
+}
+
 .filters {
   display: flex;
   gap: 0.75rem;
-  margin-bottom: 2rem;
   flex-wrap: wrap;
 }
 
@@ -84,10 +91,15 @@ h2 {
   background: transparent;
   border: 1px solid var(--accent);
   color: var(--accent);
-  padding: 0.4rem 0.9rem;
+  padding: 0.45rem 1rem;
   border-radius: 999px;
   cursor: pointer;
   font-size: 0.85rem;
+  transition: all 0.25s ease;
+}
+
+.filter-btn:hover {
+  background: rgba(111, 209, 198, 0.15);
 }
 
 .filter-btn.active {
@@ -107,19 +119,19 @@ h2 {
   padding: 1.5rem;
   border-radius: 14px;
   box-shadow: 0 10px 25px rgba(0,0,0,0.25);
-  transition: transform 0.25s ease, opacity 0.4s ease;
+  transition: transform 0.25s ease, opacity 0.3s ease;
 }
 
-/* hover */
 .card:hover {
   transform: translateY(-6px);
 }
 
-/* toggle hide (GitHub-safe) */
+/* hide WITHOUT breaking layout */
 .card.hide {
   opacity: 0;
+  transform: scale(0.95);
   pointer-events: none;
-  position: absolute;
+  display: none;
 }
 
 .card h3 {
@@ -166,7 +178,7 @@ h2 {
 /* ---------- SCROLL REVEAL ---------- */
 .reveal {
   opacity: 0;
-  transform: translateY(30px);
+  transform: translateY(24px);
   transition: all 0.8s ease;
 }
 
@@ -201,16 +213,17 @@ footer {
 <section>
   <h2>Projects</h2>
 
-  <!-- FILTER BUTTONS -->
-  <div class="filters">
-    <button class="filter-btn active" data-filter="all">All</button>
-    <button class="filter-btn" data-filter="data">Data</button>
-    <button class="filter-btn" data-filter="gis">GIS</button>
-    <button class="filter-btn" data-filter="writing">Writing</button>
-    <button class="filter-btn" data-filter="design">Architecture</button>
+  <!-- FILTER BAR -->
+  <div class="filter-bar">
+    <div class="filters">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="data">Data</button>
+      <button class="filter-btn" data-filter="gis">GIS</button>
+      <button class="filter-btn" data-filter="writing">Writing</button>
+      <button class="filter-btn" data-filter="design">Architecture</button>
+    </div>
   </div>
 
-  <!-- PROJECT GRID -->
   <div class="grid">
 
     <div class="card reveal" data-category="data">
@@ -220,16 +233,6 @@ footer {
       <div class="tags">
         <span class="tag">Python</span>
         <span class="tag">Clustering</span>
-      </div>
-    </div>
-
-    <div class="card reveal" data-category="data">
-      <h3>Forecasting Olist Future Sales</h3>
-      <p>Time-series forecasting using AutoARIMA on Brazilian e-commerce data.</p>
-      <p><a href="https://github.com/akulim/olist-characteristic">View project →</a></p>
-      <div class="tags">
-        <span class="tag">Python</span>
-        <span class="tag">Time Series</span>
       </div>
     </div>
 
@@ -243,15 +246,14 @@ footer {
     </div>
 
     <div class="card reveal" data-category="writing">
-      <h3>Medium Writing (ID)</h3>
-      <p>Book summaries and reflections on finance & self-development.</p>
-      <p><a href="https://medium.com/@akulim">Read on Medium →</a></p>
+      <h3>Medium Writing</h3>
+      <p>Reflections on self-development and personal finance.</p>
+      <p><a href="https://medium.com/@akulim">Read →</a></p>
     </div>
 
     <div class="card reveal" data-category="design">
       <h3>Architecture Portfolio</h3>
-      <p>Studio and real-world architecture projects (2017–2019).</p>
-      <p><a href="https://drive.google.com/">View portfolio →</a></p>
+      <p>Studio & real-world architecture projects (2017–2019).</p>
     </div>
 
   </div>
@@ -263,9 +265,7 @@ footer {
     <span class="skill">Python</span>
     <span class="skill">SQL</span>
     <span class="skill">Data Analysis</span>
-    <span class="skill">Data Visualization</span>
     <span class="skill">GIS</span>
-    <span class="skill">Spatial Analysis</span>
     <span class="skill">Policy & Climate Data</span>
   </div>
 </section>
@@ -279,7 +279,7 @@ footer {
 <script>
 document.addEventListener("DOMContentLoaded", () => {
 
-  /* ---------- TOGGLE FILTER ---------- */
+  /* FILTER */
   const buttons = document.querySelectorAll(".filter-btn");
   const cards = document.querySelectorAll(".card");
 
@@ -301,9 +301,8 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  /* ---------- SCROLL REVEAL ---------- */
-  const revealElements = document.querySelectorAll(".reveal");
-
+  /* SCROLL REVEAL */
+  const reveals = document.querySelectorAll(".reveal");
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -312,8 +311,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }, { threshold: 0.15 });
 
-  revealElements.forEach(el => observer.observe(el));
-
+  reveals.forEach(el => observer.observe(el));
 });
 </script>
 
