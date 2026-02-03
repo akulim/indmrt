@@ -9,7 +9,6 @@
 :root {
   --bg-main: #0f1c1a;
   --bg-card: #162826;
-  --bg-soft: #112221;
   --accent: #6fd1c6;
   --accent-soft: #9be3db;
   --text-main: #e6f2f1;
@@ -28,16 +27,6 @@ body {
   line-height: 1.6;
 }
 
-a {
-  color: var(--accent);
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
-/* ---------- HEADER ---------- */
 header {
   padding: 5rem 2rem 4rem;
   text-align: center;
@@ -55,7 +44,6 @@ header p {
   font-size: 1.1rem;
 }
 
-/* ---------- LAYOUT ---------- */
 .container {
   max-width: 1100px;
   margin: auto;
@@ -68,70 +56,29 @@ section {
 
 h2 {
   font-size: 1.8rem;
-  margin-bottom: 1.2rem;
+  margin-bottom: 1.5rem;
   border-left: 4px solid var(--accent);
   padding-left: 0.75rem;
 }
 
-/* ---------- FILTER BAR (VISIBLE FIX) ---------- */
-.filter-bar {
-  background: var(--bg-soft);
-  border-radius: 14px;
-  padding: 1rem;
-  margin-bottom: 2rem;
-}
-
-.filters {
-  display: flex;
-  gap: 0.75rem;
-  flex-wrap: wrap;
-}
-
-.filter-btn {
-  background: transparent;
-  border: 1px solid var(--accent);
-  color: var(--accent);
-  padding: 0.45rem 1rem;
-  border-radius: 999px;
-  cursor: pointer;
-  font-size: 0.85rem;
-  transition: all 0.25s ease;
-}
-
-.filter-btn:hover {
-  background: rgba(111, 209, 198, 0.15);
-}
-
-.filter-btn.active {
-  background: var(--accent);
-  color: #0b1514;
-}
-
-/* ---------- GRID & CARDS ---------- */
+/* GRID */
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 1.5rem;
 }
 
+/* CARD */
 .card {
   background: var(--bg-card);
   padding: 1.5rem;
   border-radius: 14px;
   box-shadow: 0 10px 25px rgba(0,0,0,0.25);
-  transition: transform 0.25s ease, opacity 0.3s ease;
+  transition: transform 0.25s ease;
 }
 
 .card:hover {
   transform: translateY(-6px);
-}
-
-/* hide WITHOUT breaking layout */
-.card.hide {
-  opacity: 0;
-  transform: scale(0.95);
-  pointer-events: none;
-  display: none;
 }
 
 .card h3 {
@@ -144,7 +91,7 @@ h2 {
   font-size: 0.95rem;
 }
 
-/* ---------- TAGS ---------- */
+/* TAGS */
 .tags {
   margin-top: 1rem;
 }
@@ -157,10 +104,9 @@ h2 {
   border-radius: 999px;
   font-size: 0.75rem;
   margin-right: 0.4rem;
-  margin-bottom: 0.4rem;
 }
 
-/* ---------- SKILLS ---------- */
+/* SKILLS */
 .skills {
   display: flex;
   flex-wrap: wrap;
@@ -175,11 +121,11 @@ h2 {
   font-size: 0.85rem;
 }
 
-/* ---------- SCROLL REVEAL ---------- */
+/* REVEAL (SAFE VERSION) */
 .reveal {
   opacity: 0;
   transform: translateY(24px);
-  transition: all 0.8s ease;
+  transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
 .reveal.visible {
@@ -187,7 +133,6 @@ h2 {
   transform: translateY(0);
 }
 
-/* ---------- FOOTER ---------- */
 footer {
   text-align: center;
   padding: 3rem 1rem;
@@ -199,7 +144,7 @@ footer {
 
 <body>
 
-<header>
+<header class="reveal">
   <h1>Milka</h1>
   <p>
     Master’s student in <strong>Urban Data Science</strong> with interests in
@@ -211,32 +156,19 @@ footer {
 <div class="container">
 
 <section>
-  <h2>Projects</h2>
-
-  <!-- FILTER BAR -->
-  <div class="filter-bar">
-    <div class="filters">
-      <button class="filter-btn active" data-filter="all">All</button>
-      <button class="filter-btn" data-filter="data">Data</button>
-      <button class="filter-btn" data-filter="gis">GIS</button>
-      <button class="filter-btn" data-filter="writing">Writing</button>
-      <button class="filter-btn" data-filter="design">Architecture</button>
-    </div>
-  </div>
+  <h2 class="reveal">Projects</h2>
 
   <div class="grid">
-
-    <div class="card reveal" data-category="data">
+    <div class="card reveal">
       <h3>Country GDP Clustering</h3>
-      <p>K-Means clustering to identify priority countries for humanitarian aid.</p>
-      <p><a href="https://github.com/akulim/country-gdp-clustering">View project →</a></p>
+      <p>Used K-Means clustering to identify priority countries for humanitarian aid.</p>
       <div class="tags">
         <span class="tag">Python</span>
         <span class="tag">Clustering</span>
       </div>
     </div>
 
-    <div class="card reveal" data-category="gis">
+    <div class="card reveal">
       <h3>GIS StoryMap</h3>
       <p>Spatial storytelling combining maps, data, and narrative.</p>
       <div class="tags">
@@ -245,22 +177,15 @@ footer {
       </div>
     </div>
 
-    <div class="card reveal" data-category="writing">
-      <h3>Medium Writing</h3>
-      <p>Reflections on self-development and personal finance.</p>
-      <p><a href="https://medium.com/@akulim">Read →</a></p>
-    </div>
-
-    <div class="card reveal" data-category="design">
+    <div class="card reveal">
       <h3>Architecture Portfolio</h3>
-      <p>Studio & real-world architecture projects (2017–2019).</p>
+      <p>Studio and real-world architectural projects.</p>
     </div>
-
   </div>
 </section>
 
 <section>
-  <h2>Skills</h2>
+  <h2 class="reveal">Skills</h2>
   <div class="skills reveal">
     <span class="skill">Python</span>
     <span class="skill">SQL</span>
@@ -272,46 +197,31 @@ footer {
 
 </div>
 
-<footer>
+<footer class="reveal">
   © 2026 · Built with HTML & CSS · Open to internships
 </footer>
 
 <script>
 document.addEventListener("DOMContentLoaded", () => {
+  const elements = document.querySelectorAll(".reveal");
 
-  /* FILTER */
-  const buttons = document.querySelectorAll(".filter-btn");
-  const cards = document.querySelectorAll(".card");
-
-  buttons.forEach(btn => {
-    btn.addEventListener("click", () => {
-      const filter = btn.dataset.filter;
-
-      buttons.forEach(b => b.classList.remove("active"));
-      btn.classList.add("active");
-
-      cards.forEach(card => {
-        const category = card.dataset.category;
-        if (filter === "all" || category === filter) {
-          card.classList.remove("hide");
-        } else {
-          card.classList.add("hide");
+  // Intersection Observer
+  if ("IntersectionObserver" in window) {
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
         }
       });
-    });
-  });
+    }, { threshold: 0.15 });
 
-  /* SCROLL REVEAL */
-  const reveals = document.querySelectorAll(".reveal");
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("visible");
-      }
-    });
-  }, { threshold: 0.15 });
+    elements.forEach(el => observer.observe(el));
+  }
 
-  reveals.forEach(el => observer.observe(el));
+  // FALLBACK: force reveal after load (GitHub-safe)
+  setTimeout(() => {
+    elements.forEach(el => el.classList.add("visible"));
+  }, 500);
 });
 </script>
 
