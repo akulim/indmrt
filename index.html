@@ -46,8 +46,8 @@
             position: relative;
         }
 
-        /* Project & Writing Links underline growth */
-        .project-details a::after, .card ul li a::after {
+        /* Animated underline for links inside text/lists */
+        .project-details a::after, .card a::after, .card ul li a::after {
             content: '';
             position: absolute;
             width: 0;
@@ -58,7 +58,7 @@
             transition: width 0.3s ease;
         }
 
-        .project-details a:hover::after, .card ul li a:hover::after {
+        .project-details a:hover::after, .card a:hover::after, .card ul li a:hover::after {
             width: 100%;
         }
 
@@ -80,12 +80,22 @@
             color: var(--muted);
             max-width: 750px;
             margin: 0 auto 2.5rem auto;
+            font-size: 1.1rem;
         }
 
-        /* --- SKILL PILLS HOVER --- */
-        .skills-container {
+        /* --- SKILLS SECTION --- */
+        .skills-section {
             text-align: center;
             margin-bottom: 6rem;
+        }
+
+        .skills-section h3 {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--muted);
+            margin-bottom: 1.5rem;
+            font-weight: 600;
         }
 
         .pill {
@@ -96,22 +106,31 @@
             border: 1px solid rgba(111, 191, 181, 0.3);
             border-radius: 50px;
             font-size: 0.8rem;
-            color: var(--muted);
+            color: var(--accent);
             text-transform: uppercase;
             letter-spacing: 1px;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Bouncy effect */
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             cursor: default;
         }
 
         .pill:hover {
             color: var(--bg);
             background: var(--accent);
-            border-color: var(--accent);
             transform: scale(1.1);
             box-shadow: 0 0 15px var(--accent-glow);
         }
 
-        /* --- PROJECT HOVER ANIMATION --- */
+        /* --- PROJECTS --- */
+        .section h2 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 4rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--accent);
+            text-align: center;
+        }
+
         .project {
             margin-bottom: 8rem;
             text-align: center;
@@ -130,13 +149,12 @@
             max-width: 800px;
             border-radius: 16px;
             margin-bottom: 2.5rem;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.4);
             transition: all 0.5s cubic-bezier(0.2, 0.65, 0.3, 1);
-            filter: grayscale(20%);
         }
 
         .project:hover img {
-            transform: translateY(-10px) scale(1.02);
-            filter: grayscale(0%);
+            transform: translateY(-10px);
             box-shadow: 0 30px 60px rgba(0,0,0,0.5), 0 0 20px rgba(111, 191, 181, 0.1);
         }
 
@@ -150,7 +168,25 @@
             letter-spacing: 1.5px;
         }
 
-        /* --- OTHERS CARD HOVER --- */
+        .project-details {
+            max-width: 650px;
+            margin: 0 auto;
+        }
+
+        .project-details b {
+            display: block;
+            margin: 1.5rem 0 0.5rem;
+            color: var(--text);
+        }
+
+        .project-details ul {
+            list-style: none;
+            color: var(--muted);
+            font-weight: 300;
+            margin-bottom: 1.5rem;
+        }
+
+        /* --- OTHERS GRID --- */
         .grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -163,16 +199,31 @@
             border-radius: 20px;
             opacity: 0;
             transform: translateY(30px);
-            transition: all 0.5s ease;
-            border: 1px solid transparent;
+            transition: all 0.6s ease;
+            text-align: left;
+        }
+
+        .card.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         .card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-8px);
             background: #1a2529;
-            border-color: rgba(111, 191, 181, 0.2);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
         }
+
+        .card img {
+            width: 100%;
+            border-radius: 12px;
+            margin-bottom: 1.5rem;
+        }
+
+        .card h3 { margin-bottom: 1rem; }
+
+        .card ul { list-style: none; }
+        .card ul li { margin-bottom: 0.6rem; }
 
         footer {
             text-align: center;
@@ -184,17 +235,26 @@
             font-size: 1.8rem;
             margin: 0 15px;
             color: var(--muted);
+            display: inline-block;
         }
 
         footer a:hover {
             color: var(--accent);
-            transform: scale(1.2);
+            transform: translateY(-3px);
         }
 
         @media (max-width: 768px) {
             .grid { grid-template-columns: 1fr; }
         }
     </style>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-0K5H04V2MT"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-0K5H04V2MT');
+    </script>
 </head>
 <body>
 
@@ -203,11 +263,12 @@
     <header class="hero">
         <h1>Milka Vincentiya</h1>
         <p>
-            Master’s student in <b>Urban Data Science</b> with a background in <b>Architecture</b>. 
-            Bridging the gap between spatial design and data-driven policy.
+            Master’s student in <b>Urban Data Science</b> with professional experience as a Data Analyst in the banking sector.
+            Background in architecture with strong interest in data-driven analysis for urban, policy, and economic applications.
         </p>
         
-        <div class="skills-container">
+        <div class="skills-section">
+            <h3>Skills</h3>
             <span class="pill">Python</span>
             <span class="pill">SQL</span>
             <span class="pill">Tableau</span>
@@ -218,48 +279,95 @@
     </header>
 
     <section class="section">
+        <h2>Data — Analytics</h2>
+
         <div class="project">
             <a href="https://floodlinknyc-2026.streamlit.app/">
-                <img src="mac.png" alt="Urban Flood Tool">
+                <img src="mac.png" alt="Flood Simulation Tool">
             </a>
             <h3>Urban Flood Risk Simulation Tool</h3>
             <div class="meta">Jan 2026 | Python • SARIMA • Streamlit</div>
             <div class="project-details">
-                <p>Simulating flood risk under varying rainfall intensities.</p>
-                <a href="https://floodlinknyc-2026.streamlit.app/">Explore Live Dashboard →</a>
+                <b>Objective</b>
+                <p>Simulate flood risk under varying rainfall intensities and urban density scenarios.</p>
+                <b>Impact</b>
+                <ul>
+                    <li>Enabled scenario comparison across rainfall intensities</li>
+                    <li>Demonstrated risk amplification under high-density development</li>
+                    <li>Built interactive decision-support prototype</li>
+                </ul>
+                <a href="https://floodlinknyc-2026.streamlit.app/">View Live Project →</a>
             </div>
         </div>
 
         <div class="project">
-            <img src="mac.png" alt="NYC Housing">
-            <h3>Time Over Money: NYC Housing</h3>
+            <img src="mac.png" alt="NYC Storymap">
+            <h3>What Would New Yorker Choose Time Over Money?</h3>
             <div class="meta">Dec 2025 | GIS • Storymap</div>
             <div class="project-details">
-                <p>A spatial analysis on commute times vs housing affordability.</p>
+                <p>A GIS Storymap about housing value and commute trade-offs in NYC.</p>
+            </div>
+        </div>
+
+        <div class="project">
+            <img src="mac.png" alt="Autistic Children Visualization">
+            <h3>Autistic Children Daily Activity Visualization</h3>
+            <div class="meta">Oct 2023 | Looker Studio</div>
+            <div class="project-details">
+                <p>Dashboard visualizing daily activity progress of autistic children.</p>
+            </div>
+        </div>
+
+        <div class="project">
+            <a href="https://github.com/akulim/country-gdp-clustering/blob/main/Country_GDP_Clustering.pdf">
+                <img src="gdp.png" alt="GDP Clustering">
+            </a>
+            <h3>Country GDP Clustering</h3>
+            <div class="meta">Apr 2022 | Python • K-Means</div>
+            <div class="project-details">
+                <p>Identifying priority countries for donation allocation through machine learning.</p>
+            </div>
+        </div>
+
+        <div class="project">
+            <a href="https://github.com/akulim/olist-characteristic/tree/main/olist-future-sales">
+                <img src="olist.png" alt="Sales Forecasting">
+            </a>
+            <h3>Forecasting Olist Future Sales</h3>
+            <div class="meta">Dec 2022 | Python • AutoARIMA</div>
+            <div class="project-details">
+                <p>Sales forecasting for Brazilian e-commerce sellers.</p>
             </div>
         </div>
     </section>
 
     <section class="section">
+        <h2>Others</h2>
         <div class="grid">
             <div class="card">
-                <h3>Architecture</h3>
-                <p>Selected works from professional practice.</p>
+                <a href="https://drive.google.com/file/d/1WZdMR5rD5nolT-hlxYYTu5Uq6Fx0MTIJ/view">
+                    <img src="arch.png" alt="Architecture Portfolio">
+                </a>
+                <h3>Architecture & Design</h3>
+                <p>Architecture portfolio from academic and professional projects.</p>
                 <br>
-                <a href="#">View Portfolio →</a>
+                <a href="https://drive.google.com/file/d/1WZdMR5rD5nolT-hlxYYTu5Uq6Fx0MTIJ/view">View Portfolio →</a>
             </div>
 
             <div class="card">
-                <h3>Writing</h3>
-                <ul style="list-style: none; margin-top: 10px;">
-                    <li><a href="https://medium.com/@akulim/">Medium Articles</a></li>
-                    <li><a href="#">Translations (JP/EN to ID)</a></li>
+                <h3>Writing & Translations</h3>
+                <ul style="margin-top: 1rem;">
+                    <li><a href="https://medium.com/@akulim/">Medium (Bahasa Indonesia)</a></li>
+                    <li><a href="littleprince1.html">Little Prince (EN–ID)</a></li>
+                    <li><a href="oculus.html">The Latte Factor (EN–ID)</a></li>
+                    <li><a href="news-jp.html">Real Estate News (JP–ID)</a></li>
                 </ul>
             </div>
         </div>
     </section>
 
     <footer>
+        Let’s connect —
         <a href="https://linkedin.com/in/milka-vincentiya/" target="_blank"><i class="fa fa-linkedin"></i></a>
         <a href="https://github.com/akulim" target="_blank"><i class="fa fa-github"></i></a>
     </footer>
