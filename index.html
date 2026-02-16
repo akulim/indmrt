@@ -33,13 +33,13 @@ body {
   line-height: 1.6;
 }
 
-/* Layout */
 .wrapper {
   max-width: 1200px;
   margin: auto;
   padding: 4rem 2rem;
 }
 
+/* HERO */
 .hero {
   margin-bottom: 5rem;
   max-width: 750px;
@@ -57,6 +57,7 @@ body {
   color: var(--muted);
 }
 
+/* SECTION */
 .section {
   margin-bottom: 5rem;
 }
@@ -77,18 +78,29 @@ body {
   margin-top: 8px;
 }
 
-/* Grid */
+/* GRID */
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 2rem;
 }
 
+/* CARD */
 .card {
   background: var(--panel);
   border-radius: 16px;
   overflow: hidden;
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  transition: opacity 0.8s ease, 
+              transform 0.8s cubic-bezier(.2,.65,.3,1), 
+              box-shadow 0.4s ease;
+
+  opacity: 0;
+  transform: translateY(40px);
+}
+
+.card.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .card:hover {
@@ -117,13 +129,16 @@ body {
   margin-bottom: 0.6rem;
 }
 
-/* Skills */
-.skills {
-  color: var(--muted);
-  font-weight: 300;
+.card-content a {
+  color: var(--accent);
+  text-decoration: none;
 }
 
-/* Footer */
+.card-content a:hover {
+  opacity: 0.8;
+}
+
+/* FOOTER */
 footer {
   text-align: center;
   padding: 3rem 0;
@@ -141,7 +156,7 @@ footer a:hover {
   opacity: 0.7;
 }
 
-/* Responsive */
+/* RESPONSIVE */
 @media (max-width: 768px) {
   .hero h1 {
     font-size: 2.2rem;
@@ -163,6 +178,7 @@ gtag('config', 'G-0K5H04V2MT');
 
 <div class="wrapper">
 
+<!-- HERO -->
 <div class="hero">
   <h1>Milka Vincentiya</h1>
   <p>
@@ -251,6 +267,23 @@ gtag('config', 'G-0K5H04V2MT');
 </footer>
 
 </div>
+
+<!-- SCROLL REVEAL SCRIPT -->
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("visible");
+    }
+  });
+}, {
+  threshold: 0.15
+});
+
+document.querySelectorAll(".card").forEach((el) => {
+  observer.observe(el);
+});
+</script>
 
 </body>
 </html>
