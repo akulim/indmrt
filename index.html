@@ -1,21 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Milka Vincentiya — Data & Analytics</title>
+<title>Milka Vincentiya — Portfolio</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <!-- Manrope Font -->
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;700&display=swap" rel="stylesheet">
 
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 <style>
 :root {
-  --bg: #0c1415;
-  --panel: #121c1d;
-  --accent: #79e0d4;
-  --accent-soft: rgba(121,224,212,0.12);
-  --muted: #8fa9a8;
-  --text: #e8f3f2;
+  --bg: #0f1416;
+  --panel: #151d20;
+  --accent: #6fbfb5;
+  --text: #ecf4f3;
+  --muted: #8fa5a4;
 }
 
 * {
@@ -26,242 +28,229 @@
 
 body {
   font-family: "Manrope", sans-serif;
-  background: radial-gradient(circle at 15% 10%, #132223, #0c1415 60%);
+  background: radial-gradient(circle at 10% 10%, #182426, #0f1416 60%);
   color: var(--text);
-  line-height: 1.7;
+  line-height: 1.6;
 }
 
+/* Layout */
 .wrapper {
-  max-width: 1050px;
+  max-width: 1200px;
   margin: auto;
-  padding: 5rem 2rem;
+  padding: 4rem 2rem;
 }
 
-/* ================= HERO ================= */
-
-header {
-  margin-bottom: 6rem;
+.hero {
+  margin-bottom: 5rem;
+  max-width: 750px;
 }
 
-header h1 {
-  font-size: 3.4rem;
+.hero h1 {
+  font-size: 3rem;
   font-weight: 700;
+  margin-bottom: 1rem;
   letter-spacing: -1px;
-  margin-bottom: 1.2rem;
 }
 
-header p {
-  max-width: 640px;
+.hero p {
   font-weight: 300;
   color: var(--muted);
-  font-size: 1.05rem;
 }
 
-/* ================= SECTION ================= */
-
-section {
-  margin-bottom: 6rem;
+.section {
+  margin-bottom: 5rem;
 }
 
-.section-title {
-  font-size: 1.8rem;
+.section h2 {
+  font-size: 1.6rem;
   font-weight: 600;
-  margin-bottom: 2.5rem;
+  margin-bottom: 2rem;
   position: relative;
 }
 
-.section-title::after {
+.section h2::after {
   content: "";
-  display: block;
   width: 50px;
   height: 2px;
-  margin-top: 0.7rem;
   background: var(--accent);
+  display: block;
+  margin-top: 8px;
 }
 
-/* ================= PROJECT BLOCK ================= */
-
-.project {
+/* Grid */
+.grid {
   display: grid;
-  grid-template-columns: 1fr 2fr;
-  gap: 2.5rem;
-  padding: 2.2rem;
-  margin-bottom: 2.8rem;
-  background: linear-gradient(180deg, #141f20, #101819);
-  border-radius: 18px;
-  transition: all 0.7s ease;
-  opacity: 0;
-  transform: translateY(40px);
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
 }
 
-.project.visible {
-  opacity: 1;
-  transform: translateY(0);
+.card {
+  background: var(--panel);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
-.project h3 {
-  font-weight: 600;
-  margin-bottom: 0.6rem;
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+}
+
+.card img {
+  width: 100%;
+  display: block;
+}
+
+.card-content {
+  padding: 1.4rem;
+}
+
+.card-content h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.4rem;
   color: var(--accent);
 }
 
-.project p {
+.card-content p {
+  font-size: 0.9rem;
   color: var(--muted);
-  font-size: 0.95rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0.6rem;
 }
 
-.project a {
-  text-decoration: none;
-  color: var(--accent);
-  font-weight: 600;
-}
-
-.project a:hover {
-  opacity: 0.8;
-}
-
-/* ================= TAGS ================= */
-
-.tags span {
-  display: inline-block;
-  padding: 0.25rem 0.6rem;
-  margin: 0.3rem 0.4rem 0 0;
-  font-size: 0.7rem;
-  border-radius: 999px;
-  background: var(--accent-soft);
-  color: var(--accent);
-}
-
-/* ================= SKILLS ================= */
-
+/* Skills */
 .skills {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.6rem;
+  color: var(--muted);
+  font-weight: 300;
 }
 
-.skill {
-  padding: 0.4rem 0.8rem;
-  font-size: 0.8rem;
-  border-radius: 10px;
-  background: #162526;
-  color: var(--accent);
-  font-weight: 500;
-}
-
-/* ================= FOOTER ================= */
-
+/* Footer */
 footer {
   text-align: center;
-  margin-top: 5rem;
-  font-size: 0.85rem;
+  padding: 3rem 0;
   color: var(--muted);
 }
 
-/* ================= RESPONSIVE ================= */
+footer a {
+  color: var(--accent);
+  font-size: 1.4rem;
+  margin-left: 10px;
+  text-decoration: none;
+}
 
+footer a:hover {
+  opacity: 0.7;
+}
+
+/* Responsive */
 @media (max-width: 768px) {
-  .project {
-    grid-template-columns: 1fr;
-  }
-
-  header h1 {
-    font-size: 2.4rem;
+  .hero h1 {
+    font-size: 2.2rem;
   }
 }
 </style>
-</head>
 
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0K5H04V2MT"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-0K5H04V2MT');
+</script>
+
+</head>
 <body>
 
 <div class="wrapper">
 
-<header>
+<div class="hero">
   <h1>Milka Vincentiya</h1>
   <p>
-    Master’s student in <strong>Urban Data Science</strong> with prior experience
-    as a <strong>Data Analyst in banking</strong>.  
-    Focused on forecasting, financial analytics, and data-driven decision-making.
+    Master’s student in Urban Data Science with professional experience as a Data Analyst in the banking sector.
+    Background in architecture with strong interest in data-driven analysis for urban, policy, and economic applications.
+    Skilled in Python, SQL, Tableau, and GIS-based analysis.
   </p>
-</header>
+</div>
 
-<section>
-  <h2 class="section-title">Selected Work</h2>
+<!-- DATA SECTION -->
+<div class="section">
+  <h2>Data — Analytics</h2>
 
-  <div class="project reveal">
-    <div>
-      <h3>Olist Sales Forecasting</h3>
-      <div class="tags">
-        <span>Python</span>
-        <span>SQL</span>
-        <span>Time Series</span>
+  <div class="grid">
+
+    <div class="card">
+      <img src="mac.png">
+      <div class="card-content">
+        <h3>Autistic Children Daily Activity Visualization</h3>
+        <p><i>Oct 2023 | Looker Studio</i></p>
+        <p>Dashboard visualizing daily activity progress of autistic children.</p>
       </div>
     </div>
-    <div>
-      <p>
-        Forecasted future sales for a Brazilian e-commerce platform using
-        SQL-extracted data and Auto-ARIMA. Focused on seller performance
-        and transaction patterns.
-      </p>
-      <a href="https://github.com/akulim/olist-characteristic" target="_blank">
-        View project →
-      </a>
-    </div>
-  </div>
 
-  <div class="project reveal">
-    <div>
-      <h3>Insurance Scoring Analysis</h3>
-      <div class="tags">
-        <span>Python</span>
-        <span>Probability</span>
-        <span>Tableau</span>
+    <div class="card">
+      <a href="https://github.com/akulim/country-gdp-clustering/blob/main/Country_GDP_Clustering.pdf">
+        <img src="gdp.png">
+      </a>
+      <div class="card-content">
+        <h3>Country GDP Clustering</h3>
+        <p><i>Apr 2022 | Python, K-Means</i></p>
+        <p>Identifying priority countries for donation allocation.</p>
       </div>
     </div>
-    <div>
-      <p>
-        Built a scoring framework to evaluate pricing sensitivity
-        based on customer characteristics and risk indicators.
-      </p>
-      <a href="https://akulim.github.io/insurance-scoring/" target="_blank">
-        View project →
+
+    <div class="card">
+      <a href="https://github.com/akulim/olist-characteristic/tree/main/olist-future-sales">
+        <img src="olist.png">
       </a>
+      <div class="card-content">
+        <h3>Forecasting Olist Future Sales</h3>
+        <p><i>Dec 2022 | Python, AutoARIMA</i></p>
+        <p>Sales forecasting for Brazilian e-commerce sellers.</p>
+      </div>
     </div>
-  </div>
 
-</section>
-
-<section>
-  <h2 class="section-title">Skills</h2>
-  <div class="skills">
-    <span class="skill">Python</span>
-    <span class="skill">SQL</span>
-    <span class="skill">Pandas</span>
-    <span class="skill">Forecasting</span>
-    <span class="skill">Data Visualization</span>
-    <span class="skill">Tableau</span>
-    <span class="skill">GIS</span>
   </div>
-</section>
+</div>
+
+<!-- OTHERS -->
+<div class="section">
+  <h2>Others</h2>
+
+  <div class="grid">
+
+    <div class="card">
+      <a href="https://drive.google.com/file/d/1WZdMR5rD5nolT-hlxYYTu5Uq6Fx0MTIJ/view">
+        <img src="arch.png">
+      </a>
+      <div class="card-content">
+        <h3>Architecture & Design</h3>
+        <p>Architecture portfolio from academic and professional projects.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-content">
+        <h3>Writing & Translations</h3>
+        <ul>
+          <li><a href="https://medium.com/@akulim/">Medium (Bahasa Indonesia)</a></li>
+          <li><a href="littleprince1.html">Little Prince (EN–ID)</a></li>
+          <li><a href="oculus.html">The Latte Factor (EN–ID)</a></li>
+          <li><a href="news-jp.html">Real Estate News (JP–ID)</a></li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</div>
 
 <footer>
-  © 2026 · Open to Data Analyst / Data Science Internships
+  Let’s connect —
+  <a href="https://linkedin.com/in/milka-vincentiya/">
+    <i class="fa fa-linkedin"></i>
+  </a>
 </footer>
 
 </div>
-
-<script>
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add("visible");
-    }
-  });
-}, { threshold: 0.2 });
-
-document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
-</script>
 
 </body>
 </html>
