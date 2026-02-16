@@ -1,239 +1,224 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Milka | Data & Urban Analytics</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Milka Vincentiya — Data & Analytics</title>
 
-<!-- Google Font -->
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;700&display=swap" rel="stylesheet">
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
 :root {
-  --bg-dark: #0b1413;
-  --bg-panel: rgba(22, 40, 38, 0.75);
-  --accent: #6fd1c6;
-  --accent-soft: #9be3db;
-  --text-main: #e9f4f3;
-  --text-muted: #a6c7c3;
+  --bg: #0e1516;
+  --panel: #141f20;
+  --accent: #7adfd4;
+  --muted: #9bbdbc;
+  --text: #e9f5f4;
 }
 
 * {
   box-sizing: border-box;
-  font-family: "Manrope", sans-serif;
 }
 
 body {
   margin: 0;
-  color: var(--text-main);
-  background:
-    radial-gradient(circle at 20% 20%, rgba(111,209,198,0.08), transparent 40%),
-    radial-gradient(circle at 80% 30%, rgba(155,227,219,0.06), transparent 45%),
-    linear-gradient(180deg, #0b1413, #08100f);
+  background: radial-gradient(1200px at 10% 10%, #142423, #0e1516);
+  color: var(--text);
+  font-family: "Inter", sans-serif;
+  line-height: 1.7;
 }
 
-/* subtle grid texture */
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background-image:
-    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
-  background-size: 40px 40px;
-  pointer-events: none;
+/* --- Layout --- */
+.wrapper {
+  max-width: 1100px;
+  margin: auto;
+  padding: 4rem 2rem;
 }
 
 header {
-  padding: 6rem 2rem 4rem;
-  text-align: center;
+  margin-bottom: 6rem;
 }
 
 header h1 {
-  font-size: 3rem;
-  font-weight: 700;
-  margin-bottom: 0.75rem;
-  letter-spacing: -0.02em;
+  font-family: "DM Serif Display", serif;
+  font-size: 3.2rem;
+  margin: 0 0 1rem;
 }
 
 header p {
-  max-width: 760px;
-  margin: auto;
-  color: var(--text-muted);
-  font-size: 1.1rem;
+  max-width: 650px;
+  color: var(--muted);
+  font-size: 1.05rem;
 }
 
-.container {
-  max-width: 1100px;
-  margin: auto;
-  padding: 2rem;
-}
-
+/* --- Section --- */
 section {
-  margin-bottom: 4.5rem;
+  margin-bottom: 6rem;
 }
 
-h2 {
-  font-size: 1.8rem;
-  margin-bottom: 1.8rem;
+.section-title {
+  font-family: "DM Serif Display", serif;
+  font-size: 2rem;
+  margin-bottom: 2rem;
   position: relative;
 }
 
-h2::after {
+.section-title::after {
   content: "";
-  width: 48px;
-  height: 4px;
-  background: var(--accent);
   display: block;
+  width: 60px;
+  height: 3px;
+  background: var(--accent);
   margin-top: 0.5rem;
-  border-radius: 4px;
 }
 
-/* GRID */
-.grid {
+/* --- Project layout (not grid) --- */
+.project {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.8rem;
-}
-
-/* GLASS CARD */
-.card {
-  background: var(--bg-panel);
-  backdrop-filter: blur(10px);
+  grid-template-columns: 1fr 2fr;
+  gap: 2rem;
+  padding: 2rem;
+  background: linear-gradient(180deg, #162526, #121c1d);
   border-radius: 18px;
-  padding: 1.6rem;
-  border: 1px solid rgba(255,255,255,0.08);
-  box-shadow: 0 18px 40px rgba(0,0,0,0.35);
-  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  margin-bottom: 2.5rem;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease;
 }
 
-.card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 25px 55px rgba(0,0,0,0.5);
+.project.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
-.card h3 {
+.project h3 {
   margin-top: 0;
-  color: var(--accent-soft);
-  font-size: 1.2rem;
+  color: var(--accent);
 }
 
-.card p {
-  color: var(--text-muted);
+.project p {
+  color: var(--muted);
   font-size: 0.95rem;
 }
 
-/* TAGS */
-.tags {
-  margin-top: 1rem;
-}
-
-.tag {
+.tags span {
   display: inline-block;
-  padding: 0.3rem 0.7rem;
-  font-size: 0.75rem;
+  margin: 0.3rem 0.3rem 0 0;
+  padding: 0.25rem 0.6rem;
   border-radius: 999px;
-  background: rgba(111,209,198,0.15);
+  font-size: 0.7rem;
+  background: rgba(122,223,212,0.15);
   color: var(--accent);
-  margin-right: 0.4rem;
-  margin-bottom: 0.4rem;
 }
 
-/* SKILLS */
+/* --- Skills --- */
 .skills {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.75rem;
+  gap: 0.6rem;
 }
 
 .skill {
-  background: rgba(155,227,219,0.15);
-  color: var(--accent-soft);
-  padding: 0.45rem 0.85rem;
+  background: #1b2e2f;
+  color: var(--accent);
+  padding: 0.4rem 0.7rem;
   border-radius: 10px;
-  font-size: 0.85rem;
+  font-size: 0.8rem;
 }
 
+/* --- Footer --- */
 footer {
   text-align: center;
-  padding: 3.5rem 1rem;
-  color: var(--text-muted);
+  color: var(--muted);
   font-size: 0.85rem;
+  padding: 3rem 0 1rem;
 }
 </style>
 </head>
 
 <body>
 
+<div class="wrapper">
+
 <header>
   <h1>Milka Vincentiya</h1>
   <p>
-    Master’s student in <strong>Urban Data Science</strong> with experience in
-    <strong>data analytics, GIS, and finance-driven insights</strong>.
-    Actively seeking <strong>Data Analyst / Data Science internships</strong>.
+    Master’s student in <strong>Urban Data Science</strong> with prior experience
+    as a <strong>Data Analyst in banking</strong>.  
+    Interested in <strong>data analytics, forecasting, finance, and policy-relevant insights</strong>.
   </p>
 </header>
 
-<div class="container">
-
 <section>
-  <h2>Selected Projects</h2>
-  <div class="grid">
+  <h2 class="section-title">Selected Work</h2>
 
-    <div class="card">
-      <h3>Country GDP Clustering</h3>
-      <p>
-        Applied K-Means clustering to identify priority countries for
-        humanitarian funding allocation.
-      </p>
+  <div class="project reveal">
+    <div>
+      <h3>Olist Sales Forecasting</h3>
       <div class="tags">
-        <span class="tag">Python</span>
-        <span class="tag">Clustering</span>
-        <span class="tag">EDA</span>
+        <span>Python</span><span>SQL</span><span>Time Series</span>
       </div>
     </div>
-
-    <div class="card">
-      <h3>GIS StoryMap</h3>
+    <div>
       <p>
-        Narrative-driven spatial analysis combining geospatial data,
-        visualization, and storytelling.
+        Forecasted future sales for a Brazilian e-commerce platform using
+        SQL-extracted data and Auto-ARIMA. Focused on seller performance
+        and transaction patterns.
       </p>
-      <div class="tags">
-        <span class="tag">GIS</span>
-        <span class="tag">Spatial Data</span>
-        <span class="tag">Urban</span>
-      </div>
+      <p><a href="https://github.com/akulim/olist-characteristic" target="_blank">View project →</a></p>
     </div>
-
-    <div class="card">
-      <h3>Architecture Portfolio</h3>
-      <p>
-        Studio and real-world architectural projects exploring form,
-        space, and urban context.
-      </p>
-    </div>
-
   </div>
+
+  <div class="project reveal">
+    <div>
+      <h3>Insurance Scoring Analysis</h3>
+      <div class="tags">
+        <span>Python</span><span>Probability</span><span>Tableau</span>
+      </div>
+    </div>
+    <div>
+      <p>
+        Built a scoring framework to evaluate pricing sensitivity
+        based on customer characteristics and risk indicators.
+      </p>
+      <p><a href="https://akulim.github.io/insurance-scoring/" target="_blank">View project →</a></p>
+    </div>
+  </div>
+
 </section>
 
 <section>
-  <h2>Skills</h2>
+  <h2 class="section-title">Skills</h2>
   <div class="skills">
     <span class="skill">Python</span>
     <span class="skill">SQL</span>
-    <span class="skill">Data Analysis</span>
+    <span class="skill">Pandas</span>
+    <span class="skill">Forecasting</span>
+    <span class="skill">Data Visualization</span>
+    <span class="skill">Tableau</span>
     <span class="skill">GIS</span>
-    <span class="skill">Visualization</span>
-    <span class="skill">Policy & Climate Data</span>
   </div>
 </section>
 
+<footer>
+  © 2026 · Open to Data Analyst / Data Science Internships
+</footer>
+
 </div>
 
-<footer>
-  © 2026 · Designed & built by Milka · Open to internships
-</footer>
+<script>
+/* Scroll Reveal — Netlify safe */
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("visible");
+    }
+  });
+}, { threshold: 0.2 });
+
+document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
+</script>
 
 </body>
 </html>
