@@ -15,7 +15,6 @@
             --accent: #6fbfb5;
             --text: #ecf4f3;
             --muted: #8fa5a4;
-            --nav-bg: rgba(15, 20, 22, 0.85);
         }
 
         * {
@@ -32,38 +31,6 @@
             overflow-x: hidden;
         }
 
-        /* STICKY SKILLS NAV */
-        .skills-nav {
-            position: sticky;
-            top: 0;
-            background: var(--nav-bg);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            z-index: 1000;
-            padding: 1rem 0;
-            border-bottom: 1px solid rgba(111, 191, 181, 0.1);
-            text-align: center;
-        }
-
-        .skills-nav .pill {
-            display: inline-block;
-            margin: 0.3rem 0.5rem;
-            padding: 4px 14px;
-            border: 1px solid var(--accent);
-            border-radius: 20px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            color: var(--accent);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: all 0.3s ease;
-        }
-
-        .skills-nav .pill:hover {
-            background: var(--accent);
-            color: var(--bg);
-        }
-
         .wrapper {
             max-width: 1000px;
             margin: auto;
@@ -73,7 +40,7 @@
         /* HERO - Centered */
         .hero {
             text-align: center;
-            margin-bottom: 8rem;
+            margin-bottom: 4rem;
         }
 
         .hero h1 {
@@ -87,35 +54,53 @@
             font-weight: 300;
             color: var(--muted);
             max-width: 750px;
-            margin: 0 auto;
+            margin: 0 auto 2.5rem auto;
             font-size: 1.1rem;
+        }
+
+        /* SKILLS SECTION (Below Hero) */
+        .skills-container {
+            text-align: center;
+            margin-bottom: 6rem;
+        }
+
+        .pill {
+            display: inline-block;
+            margin: 0.4rem;
+            padding: 6px 16px;
+            /* Matches background color */
+            background: transparent;
+            border: 1px solid rgba(111, 191, 181, 0.4);
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 400;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+        }
+
+        .pill:hover {
+            border-color: var(--accent);
+            background: rgba(111, 191, 181, 0.05);
         }
 
         /* SECTION HEADERS */
         .section h2 {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             font-weight: 700;
             margin-bottom: 4rem;
             text-transform: uppercase;
             letter-spacing: 3px;
             color: var(--accent);
             text-align: center;
-            position: relative;
-        }
-
-        .section h2::after {
-            content: '';
-            display: block;
-            width: 40px;
-            height: 2px;
-            background: var(--accent);
-            margin: 10px auto 0;
+            opacity: 0.8;
         }
 
         /* CENTERED PROJECT CARDS */
         .project {
             margin-bottom: 8rem;
-            text-align: center; /* Centering project content */
+            text-align: center;
             opacity: 0;
             transform: translateY(30px);
             transition: all 0.8s cubic-bezier(.2,.65,.3,1);
@@ -128,15 +113,10 @@
 
         .project img {
             width: 100%;
-            max-width: 750px; /* Constrain wide screens */
+            max-width: 800px;
             border-radius: 16px;
-            margin-bottom: 2rem;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-            transition: transform 0.4s ease;
-        }
-
-        .project img:hover {
-            transform: scale(1.02);
+            margin-bottom: 2.5rem;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.4);
         }
 
         .project h3 {
@@ -150,13 +130,12 @@
             font-weight: 600;
             margin-bottom: 1.5rem;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
         }
 
         .project-details {
-            max-width: 600px;
+            max-width: 650px;
             margin: 0 auto;
-            text-align: center;
         }
 
         .project-details b {
@@ -173,11 +152,6 @@
             margin-bottom: 1.5rem;
         }
 
-        .project-details p {
-            color: var(--muted);
-            font-weight: 300;
-        }
-
         /* OTHERS GRID */
         .grid {
             display: grid;
@@ -192,7 +166,6 @@
             opacity: 0;
             transform: translateY(30px);
             transition: all 0.8s ease;
-            border: 1px solid rgba(255,255,255,0.03);
         }
 
         .card.visible {
@@ -206,60 +179,29 @@
             margin-bottom: 1.5rem;
         }
 
-        .card h3 {
-            margin-bottom: 1rem;
-            font-size: 1.4rem;
-        }
-
-        .card ul {
-            list-style: none;
-        }
-
-        .card ul li {
-            margin-bottom: 0.8rem;
-        }
-
         .card a {
             color: var(--accent);
             text-decoration: none;
             font-weight: 600;
-            transition: opacity 0.3s;
-        }
-
-        .card a:hover {
-            text-decoration: underline;
         }
 
         footer {
             text-align: center;
             padding: 6rem 0 3rem;
-            border-top: 1px solid rgba(255,255,255,0.05);
             color: var(--muted);
         }
 
         footer a {
             color: var(--accent);
             font-size: 1.8rem;
-            margin-left: 15px;
-            vertical-align: middle;
-            transition: transform 0.3s ease;
-            display: inline-block;
-        }
-
-        footer a:hover {
-            transform: translateY(-3px);
+            margin: 0 10px;
+            transition: opacity 0.3s;
         }
 
         @media (max-width: 768px) {
-            .grid {
-                grid-template-columns: 1fr;
-            }
-            .wrapper {
-                padding: 2rem 1.5rem;
-            }
-            .hero h1 {
-                font-size: 2.5rem;
-            }
+            .grid { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 2.8rem; }
+            .project h3 { font-size: 1.5rem; }
         }
     </style>
 
@@ -273,7 +215,6 @@
 </head>
 <body>
 
-
     <div class="wrapper">
 
         <header class="hero">
@@ -282,16 +223,16 @@
                 Master’s student in <b>Urban Data Science</b> with a background in <b>Architecture</b>. 
                 Bridging the gap between spatial design and data-driven policy through Python, SQL, and GIS-based analytics.
             </p>
+            
+            <div class="skills-container">
+                <span class="pill">Python</span>
+                <span class="pill">SQL</span>
+                <span class="pill">Tableau</span>
+                <span class="pill">GIS</span>
+                <span class="pill">Looker Studio</span>
+                <span class="pill">Urban Analysis</span>
+            </div>
         </header>
-
-        <nav class="skills-nav">
-        <span class="pill">Python</span>
-        <span class="pill">SQL</span>
-        <span class="pill">Tableau</span>
-        <span class="pill">GIS</span>
-        <span class="pill">Looker Studio</span>
-        <span class="pill">Urban Analysis</span>
-    </nav>
 
         <section class="section">
             <h2>Data — Analytics</h2>
@@ -311,7 +252,6 @@
                         <li>Demonstrated risk amplification under high-density development</li>
                         <li>Built interactive decision-support prototype</li>
                     </ul>
-                    <a href="https://floodlinknyc-2026.streamlit.app/" style="color:var(--accent); text-decoration: none; font-weight:700;">View Live Tool →</a>
                 </div>
             </div>
 
@@ -364,17 +304,16 @@
                         <img src="arch.png" alt="Architecture Portfolio">
                     </a>
                     <h3>Architecture & Design</h3>
-                    <p>A curated selection of academic and professional architectural works focusing on urban integration.</p>
-                    <a href="https://drive.google.com/file/d/1WZdMR5rD5nolT-hlxYYTu5Uq6Fx0MTIJ/view">View Portfolio →</a>
+                    <p>Architecture portfolio from academic and professional projects.</p>
                 </div>
 
                 <div class="card">
                     <h3>Writing & Translations</h3>
-                    <ul>
-                        <li><a href="https://medium.com/@akulim/">Medium (Data & Design)</a></li>
-                        <li><a href="littleprince1.html">Little Prince (EN–ID Translation)</a></li>
-                        <li><a href="oculus.html">The Latte Factor (Finance EN–ID)</a></li>
-                        <li><a href="news-jp.html">Real Estate News (JP–ID)</a></li>
+                    <ul style="list-style: none; margin-top: 1rem;">
+                        <li style="margin-bottom: 0.5rem;"><a href="https://medium.com/@akulim/">Medium (Bahasa Indonesia)</a></li>
+                        <li style="margin-bottom: 0.5rem;"><a href="littleprince1.html">Little Prince (EN–ID)</a></li>
+                        <li style="margin-bottom: 0.5rem;"><a href="oculus.html">The Latte Factor (EN–ID)</a></li>
+                        <li style="margin-bottom: 0.5rem;"><a href="news-jp.html">Real Estate News (JP–ID)</a></li>
                     </ul>
                 </div>
             </div>
@@ -382,30 +321,20 @@
 
         <footer>
             Let’s connect —
-            <a href="https://linkedin.com/in/milka-vincentiya/" target="_blank">
-                <i class="fa fa-linkedin"></i>
-            </a>
-            <a href="https://github.com/akulim" target="_blank">
-                <i class="fa fa-github"></i>
-            </a>
+            <a href="https://linkedin.com/in/milka-vincentiya/" target="_blank"><i class="fa fa-linkedin"></i></a>
+            <a href="https://github.com/akulim" target="_blank"><i class="fa fa-github"></i></a>
         </footer>
 
     </div>
 
     <script>
-        // Intersection Observer for Scroll Animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: "0px 0px -50px 0px"
-        };
-
         const observer = new IntersectionObserver((entries) => {
             entries.forEach((entry) => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add("visible");
                 }
             });
-        }, observerOptions);
+        }, { threshold: 0.1 });
 
         document.querySelectorAll(".project, .card").forEach((el) => {
             observer.observe(el);
