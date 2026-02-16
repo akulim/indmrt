@@ -5,86 +5,93 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Milka Vincentiya — Data & Analytics</title>
 
-<!-- Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<!-- Manrope Font -->
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
 :root {
-  --bg: #0e1516;
-  --panel: #141f20;
-  --accent: #7adfd4;
-  --muted: #9bbdbc;
-  --text: #e9f5f4;
+  --bg: #0c1415;
+  --panel: #121c1d;
+  --accent: #79e0d4;
+  --accent-soft: rgba(121,224,212,0.12);
+  --muted: #8fa9a8;
+  --text: #e8f3f2;
 }
 
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-  margin: 0;
-  background: radial-gradient(1200px at 10% 10%, #142423, #0e1516);
+  font-family: "Manrope", sans-serif;
+  background: radial-gradient(circle at 15% 10%, #132223, #0c1415 60%);
   color: var(--text);
-  font-family: "Inter", sans-serif;
   line-height: 1.7;
 }
 
-/* --- Layout --- */
 .wrapper {
-  max-width: 1100px;
+  max-width: 1050px;
   margin: auto;
-  padding: 4rem 2rem;
+  padding: 5rem 2rem;
 }
+
+/* ================= HERO ================= */
 
 header {
   margin-bottom: 6rem;
 }
 
 header h1 {
-  font-family: "DM Serif Display", serif;
-  font-size: 3.2rem;
-  margin: 0 0 1rem;
+  font-size: 3.4rem;
+  font-weight: 700;
+  letter-spacing: -1px;
+  margin-bottom: 1.2rem;
 }
 
 header p {
-  max-width: 650px;
+  max-width: 640px;
+  font-weight: 300;
   color: var(--muted);
   font-size: 1.05rem;
 }
 
-/* --- Section --- */
+/* ================= SECTION ================= */
+
 section {
   margin-bottom: 6rem;
 }
 
 .section-title {
-  font-family: "DM Serif Display", serif;
-  font-size: 2rem;
-  margin-bottom: 2rem;
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 2.5rem;
   position: relative;
 }
 
 .section-title::after {
   content: "";
   display: block;
-  width: 60px;
-  height: 3px;
+  width: 50px;
+  height: 2px;
+  margin-top: 0.7rem;
   background: var(--accent);
-  margin-top: 0.5rem;
 }
 
-/* --- Project layout (not grid) --- */
+/* ================= PROJECT BLOCK ================= */
+
 .project {
   display: grid;
   grid-template-columns: 1fr 2fr;
-  gap: 2rem;
-  padding: 2rem;
-  background: linear-gradient(180deg, #162526, #121c1d);
+  gap: 2.5rem;
+  padding: 2.2rem;
+  margin-bottom: 2.8rem;
+  background: linear-gradient(180deg, #141f20, #101819);
   border-radius: 18px;
-  margin-bottom: 2.5rem;
+  transition: all 0.7s ease;
   opacity: 0;
   transform: translateY(40px);
-  transition: all 0.8s ease;
 }
 
 .project.visible {
@@ -93,26 +100,41 @@ section {
 }
 
 .project h3 {
-  margin-top: 0;
+  font-weight: 600;
+  margin-bottom: 0.6rem;
   color: var(--accent);
 }
 
 .project p {
   color: var(--muted);
   font-size: 0.95rem;
+  margin-bottom: 1rem;
 }
+
+.project a {
+  text-decoration: none;
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.project a:hover {
+  opacity: 0.8;
+}
+
+/* ================= TAGS ================= */
 
 .tags span {
   display: inline-block;
-  margin: 0.3rem 0.3rem 0 0;
   padding: 0.25rem 0.6rem;
-  border-radius: 999px;
+  margin: 0.3rem 0.4rem 0 0;
   font-size: 0.7rem;
-  background: rgba(122,223,212,0.15);
+  border-radius: 999px;
+  background: var(--accent-soft);
   color: var(--accent);
 }
 
-/* --- Skills --- */
+/* ================= SKILLS ================= */
+
 .skills {
   display: flex;
   flex-wrap: wrap;
@@ -120,19 +142,33 @@ section {
 }
 
 .skill {
-  background: #1b2e2f;
-  color: var(--accent);
-  padding: 0.4rem 0.7rem;
-  border-radius: 10px;
+  padding: 0.4rem 0.8rem;
   font-size: 0.8rem;
+  border-radius: 10px;
+  background: #162526;
+  color: var(--accent);
+  font-weight: 500;
 }
 
-/* --- Footer --- */
+/* ================= FOOTER ================= */
+
 footer {
   text-align: center;
-  color: var(--muted);
+  margin-top: 5rem;
   font-size: 0.85rem;
-  padding: 3rem 0 1rem;
+  color: var(--muted);
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 768px) {
+  .project {
+    grid-template-columns: 1fr;
+  }
+
+  header h1 {
+    font-size: 2.4rem;
+  }
 }
 </style>
 </head>
@@ -146,7 +182,7 @@ footer {
   <p>
     Master’s student in <strong>Urban Data Science</strong> with prior experience
     as a <strong>Data Analyst in banking</strong>.  
-    Interested in <strong>data analytics, forecasting, finance, and policy-relevant insights</strong>.
+    Focused on forecasting, financial analytics, and data-driven decision-making.
   </p>
 </header>
 
@@ -157,7 +193,9 @@ footer {
     <div>
       <h3>Olist Sales Forecasting</h3>
       <div class="tags">
-        <span>Python</span><span>SQL</span><span>Time Series</span>
+        <span>Python</span>
+        <span>SQL</span>
+        <span>Time Series</span>
       </div>
     </div>
     <div>
@@ -166,7 +204,9 @@ footer {
         SQL-extracted data and Auto-ARIMA. Focused on seller performance
         and transaction patterns.
       </p>
-      <p><a href="https://github.com/akulim/olist-characteristic" target="_blank">View project →</a></p>
+      <a href="https://github.com/akulim/olist-characteristic" target="_blank">
+        View project →
+      </a>
     </div>
   </div>
 
@@ -174,7 +214,9 @@ footer {
     <div>
       <h3>Insurance Scoring Analysis</h3>
       <div class="tags">
-        <span>Python</span><span>Probability</span><span>Tableau</span>
+        <span>Python</span>
+        <span>Probability</span>
+        <span>Tableau</span>
       </div>
     </div>
     <div>
@@ -182,7 +224,9 @@ footer {
         Built a scoring framework to evaluate pricing sensitivity
         based on customer characteristics and risk indicators.
       </p>
-      <p><a href="https://akulim.github.io/insurance-scoring/" target="_blank">View project →</a></p>
+      <a href="https://akulim.github.io/insurance-scoring/" target="_blank">
+        View project →
+      </a>
     </div>
   </div>
 
@@ -208,7 +252,6 @@ footer {
 </div>
 
 <script>
-/* Scroll Reveal — Netlify safe */
 const observer = new IntersectionObserver(entries => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
