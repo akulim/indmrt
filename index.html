@@ -1,308 +1,415 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Milka Vincentiya — Portfolio</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Milka Vincentiya — Portfolio</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-<style>
-:root {
-  --bg: #0f1416;
-  --panel: #151d20;
-  --accent: #6fbfb5;
-  --text: #ecf4f3;
-  --muted: #8fa5a4;
-}
+    <style>
+        :root {
+            --bg: #0f1416;
+            --panel: #151d20;
+            --accent: #6fbfb5;
+            --text: #ecf4f3;
+            --muted: #8fa5a4;
+            --nav-bg: rgba(15, 20, 22, 0.85);
+        }
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-body {
-  font-family: "Manrope", sans-serif;
-  background: radial-gradient(circle at 10% 10%, #182426, #0f1416 60%);
-  color: var(--text);
-  line-height: 1.7;
-}
+        body {
+            font-family: "Manrope", sans-serif;
+            background: radial-gradient(circle at 10% 10%, #182426, #0f1416 60%);
+            color: var(--text);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
 
-.wrapper {
-  max-width: 900px;
-  margin: auto;
-  padding: 5rem 2rem;
-}
+        /* STICKY SKILLS NAV */
+        .skills-nav {
+            position: sticky;
+            top: 0;
+            background: var(--nav-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            z-index: 1000;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(111, 191, 181, 0.1);
+            text-align: center;
+        }
 
-/* HERO */
-.hero {
-  margin-bottom: 6rem;
-}
+        .skills-nav .pill {
+            display: inline-block;
+            margin: 0.3rem 0.5rem;
+            padding: 4px 14px;
+            border: 1px solid var(--accent);
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+        }
 
-.hero h1 {
-  font-size: 3rem;
-  font-weight: 700;
-  margin-bottom: 1.2rem;
-  letter-spacing: -1px;
-}
+        .skills-nav .pill:hover {
+            background: var(--accent);
+            color: var(--bg);
+        }
 
-.hero p {
-  font-weight: 300;
-  color: var(--muted);
-  max-width: 700px;
-}
+        .wrapper {
+            max-width: 1000px;
+            margin: auto;
+            padding: 4rem 2rem;
+        }
 
-/* SECTION */
-.section {
-  margin-bottom: 6rem;
-}
+        /* HERO - Centered */
+        .hero {
+            text-align: center;
+            margin-bottom: 8rem;
+        }
 
-.section h2 {
-  font-size: 1.4rem;
-  font-weight: 600;
-  margin-bottom: 3rem;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  color: var(--accent);
-}
+        .hero h1 {
+            font-size: clamp(2.5rem, 8vw, 4rem);
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            letter-spacing: -2px;
+        }
 
-/* DATA PROJECT CARD (FULL WIDTH) */
-.project {
-  margin-bottom: 4rem;
-  opacity: 0;
-  transform: translateY(40px);
-  transition: opacity 0.8s ease, transform 0.8s cubic-bezier(.2,.65,.3,1);
-}
+        .hero p {
+            font-weight: 300;
+            color: var(--muted);
+            max-width: 750px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+        }
 
-.project.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
+        /* SECTION HEADERS */
+        .section h2 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 4rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--accent);
+            text-align: center;
+            position: relative;
+        }
 
-.project img {
-  width: 100%;
-  border-radius: 14px;
-  margin-bottom: 1.2rem;
-}
+        .section h2::after {
+            content: '';
+            display: block;
+            width: 40px;
+            height: 2px;
+            background: var(--accent);
+            margin: 10px auto 0;
+        }
 
-.project h3 {
-  font-size: 1.3rem;
-  margin-bottom: 0.4rem;
-}
+        /* CENTERED PROJECT CARDS */
+        .project {
+            margin-bottom: 8rem;
+            text-align: center; /* Centering project content */
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(.2,.65,.3,1);
+        }
 
-.project .meta {
-  color: var(--muted);
-  font-size: 0.9rem;
-  margin-bottom: 0.8rem;
-}
+        .project.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
 
-.project p {
-  color: var(--muted);
-  font-weight: 300;
-}
+        .project img {
+            width: 100%;
+            max-width: 750px; /* Constrain wide screens */
+            border-radius: 16px;
+            margin-bottom: 2rem;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            transition: transform 0.4s ease;
+        }
 
-.project a {
-  color: var(--accent);
-  text-decoration: none;
-}
+        .project img:hover {
+            transform: scale(1.02);
+        }
 
-.project a:hover {
-  opacity: 0.8;
-}
+        .project h3 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
 
-/* OTHERS GRID */
-.grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2rem;
-}
+        .project .meta {
+            color: var(--accent);
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
 
-.card {
-  background: var(--panel);
-  padding: 1.8rem;
-  border-radius: 14px;
-  opacity: 0;
-  transform: translateY(40px);
-  transition: opacity 0.8s ease, transform 0.8s cubic-bezier(.2,.65,.3,1);
-}
+        .project-details {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
 
-.card.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
+        .project-details b {
+            display: block;
+            margin: 1.5rem 0 0.5rem;
+            color: var(--text);
+            font-size: 1rem;
+        }
 
-.card img {
-  width: 100%;
-  border-radius: 10px;
-  margin-bottom: 1rem;
-}
+        .project-details ul {
+            list-style: none;
+            color: var(--muted);
+            font-weight: 300;
+            margin-bottom: 1.5rem;
+        }
 
-.card h3 {
-  margin-bottom: 0.5rem;
-}
+        .project-details p {
+            color: var(--muted);
+            font-weight: 300;
+        }
 
-.card ul {
-  margin-top: 0.6rem;
-  padding-left: 18px;
-}
+        /* OTHERS GRID */
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2.5rem;
+        }
 
-.card a {
-  color: var(--accent);
-  text-decoration: none;
-}
+        .card {
+            background: var(--panel);
+            padding: 2.5rem;
+            border-radius: 20px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+            border: 1px solid rgba(255,255,255,0.03);
+        }
 
-footer {
-  text-align: center;
-  padding-top: 4rem;
-  color: var(--muted);
-}
+        .card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
 
-footer a {
-  color: var(--accent);
-  font-size: 1.4rem;
-  margin-left: 10px;
-}
+        .card img {
+            width: 100%;
+            border-radius: 12px;
+            margin-bottom: 1.5rem;
+        }
 
-@media (max-width: 768px) {
-  .grid {
-    grid-template-columns: 1fr;
-  }
+        .card h3 {
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+        }
 
-  .hero h1 {
-    font-size: 2.2rem;
-  }
-}
-</style>
+        .card ul {
+            list-style: none;
+        }
 
-<!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-0K5H04V2MT"></script>
-<script>
-window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-gtag('config', 'G-0K5H04V2MT');
-</script>
+        .card ul li {
+            margin-bottom: 0.8rem;
+        }
 
+        .card a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+            transition: opacity 0.3s;
+        }
+
+        .card a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            text-align: center;
+            padding: 6rem 0 3rem;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            color: var(--muted);
+        }
+
+        footer a {
+            color: var(--accent);
+            font-size: 1.8rem;
+            margin-left: 15px;
+            vertical-align: middle;
+            transition: transform 0.3s ease;
+            display: inline-block;
+        }
+
+        footer a:hover {
+            transform: translateY(-3px);
+        }
+
+        @media (max-width: 768px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+            .wrapper {
+                padding: 2rem 1.5rem;
+            }
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-0K5H04V2MT"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-0K5H04V2MT');
+    </script>
 </head>
 <body>
 
-<div class="wrapper">
+    <nav class="skills-nav">
+        <span class="pill">Python</span>
+        <span class="pill">SQL</span>
+        <span class="pill">Tableau</span>
+        <span class="pill">GIS</span>
+        <span class="pill">Looker Studio</span>
+        <span class="pill">Urban Analysis</span>
+    </nav>
 
-<div class="hero">
-  <h1>Milka Vincentiya</h1>
-  <p>
-    Master’s student in Urban Data Science with professional experience as a Data Analyst in the banking sector.
-    Background in architecture with strong interest in data-driven analysis for urban, policy, and economic applications.
-    Skilled in Python, SQL, Tableau, and GIS-based analysis.
-  </p>
-</div>
+    <div class="wrapper">
 
-<!-- DATA -->
-<div class="section">
-  <h2>Data — Analytics</h2>
+        <header class="hero">
+            <h1>Milka Vincentiya</h1>
+            <p>
+                Master’s student in <b>Urban Data Science</b> with a background in <b>Architecture</b>. 
+                Bridging the gap between spatial design and data-driven policy through Python, SQL, and GIS-based analytics.
+            </p>
+        </header>
 
-  <div class="project">
-    <a href="https://floodlinknyc-2026.streamlit.app/"><img src="mac.png"></a>
-    <h3>Urban Flood Risk Simulation Tool</h3>
-    <div class="meta">Jan 2026 | Python, SARIMA | Streamlit</div>
-    <b>Objective</b>
-    Simulate flood risk under varying rainfall intensities and urban density scenarios.
-    <b>Method</b>
-    <li>Built simulation engine in Python</li>
-    <li>Modeled rainfall-runoff relationships</li>
-    <li>Visualized dynamic flood spread via Streamlit interface</li>
-    <li>Integrated elevation or spatial proxy data</li>
-    <b>Impact</b>
-    <li>Enabled scenario comparison across rainfall intensities</li>
-    <li>Demonstrated risk amplification under high-density development</li>
-    <li>Built interactive decision-support prototype</li>
-  </div>
+        <section class="section">
+            <h2>Data — Analytics</h2>
 
-  <div class="project">
-    <img src="mac.png">
-    <h3>What Would New Yorker Choose Time Over Money?</h3>
-    <div class="meta">Dec 2025 | GIS | Storymap</div>
-    <p>A GIS Storymap about housing value in NYC.</p>
-  </div>
-  
-  <div class="project">
-    <img src="mac.png">
-    <h3>Autistic Children Daily Activity Visualization</h3>
-    <div class="meta">Oct 2023 | Looker Studio</div>
-    <p>Dashboard visualizing daily activity progress of autistic children.</p>
-  </div>
+            <div class="project">
+                <a href="https://floodlinknyc-2026.streamlit.app/">
+                    <img src="mac.png" alt="Urban Flood Tool">
+                </a>
+                <h3>Urban Flood Risk Simulation Tool</h3>
+                <div class="meta">Jan 2026 | Python • SARIMA • Streamlit</div>
+                <div class="project-details">
+                    <b>Objective</b>
+                    <p>Simulate flood risk under varying rainfall intensities and urban density scenarios.</p>
+                    <b>Impact</b>
+                    <ul>
+                        <li>Enabled scenario comparison across rainfall intensities</li>
+                        <li>Demonstrated risk amplification under high-density development</li>
+                        <li>Built interactive decision-support prototype</li>
+                    </ul>
+                    <a href="https://floodlinknyc-2026.streamlit.app/" style="color:var(--accent); text-decoration: none; font-weight:700;">View Live Tool →</a>
+                </div>
+            </div>
 
-  <div class="project">
-    <a href="https://github.com/akulim/country-gdp-clustering/blob/main/Country_GDP_Clustering.pdf">
-      <img src="gdp.png">
-    </a>
-    <h3>Country GDP Clustering</h3>
-    <div class="meta">Apr 2022 | Python, K-Means</div>
-    <p>Identifying priority countries for donation allocation.</p>
-  </div>
+            <div class="project">
+                <img src="mac.png" alt="NYC Housing Storymap">
+                <h3>What Would New Yorker Choose: Time Over Money?</h3>
+                <div class="meta">Dec 2025 | GIS • Storymap</div>
+                <div class="project-details">
+                    <p>A spatial analysis exploring the trade-offs between commute times and housing affordability across the five boroughs.</p>
+                </div>
+            </div>
 
-  <div class="project">
-    <a href="https://github.com/akulim/olist-characteristic/tree/main/olist-future-sales">
-      <img src="olist.png">
-    </a>
-    <h3>Forecasting Olist Future Sales</h3>
-    <div class="meta">Dec 2022 | Python, AutoARIMA</div>
-    <p>Sales forecasting for Brazilian e-commerce sellers.</p>
-  </div>
+            <div class="project">
+                <img src="mac.png" alt="Autistic Children Dashboard">
+                <h3>Autistic Children Daily Activity Visualization</h3>
+                <div class="meta">Oct 2023 | Looker Studio</div>
+                <div class="project-details">
+                    <p>Behavioral data visualization dashboard tracking therapeutic progress and daily activity patterns.</p>
+                </div>
+            </div>
 
-</div>
+            <div class="project">
+                <a href="https://github.com/akulim/country-gdp-clustering/blob/main/Country_GDP_Clustering.pdf">
+                    <img src="gdp.png" alt="GDP Clustering">
+                </a>
+                <h3>Country GDP Clustering</h3>
+                <div class="meta">Apr 2022 | Python • K-Means</div>
+                <div class="project-details">
+                    <p>Unsupervised machine learning model identifying priority nations for strategic aid and donation allocation.</p>
+                </div>
+            </div>
 
-<!-- OTHERS -->
-<div class="section">
-  <h2>Others</h2>
+            <div class="project">
+                <a href="https://github.com/akulim/olist-characteristic/tree/main/olist-future-sales">
+                    <img src="olist.png" alt="Sales Forecasting">
+                </a>
+                <h3>Forecasting Olist Future Sales</h3>
+                <div class="meta">Dec 2022 | Python • AutoARIMA</div>
+                <div class="project-details">
+                    <p>Time-series forecasting for Brazilian e-commerce, optimizing inventory for high-volume sellers.</p>
+                </div>
+            </div>
+        </section>
 
-  <div class="grid">
+        <section class="section">
+            <h2>Others</h2>
+            <div class="grid">
+                <div class="card">
+                    <a href="https://drive.google.com/file/d/1WZdMR5rD5nolT-hlxYYTu5Uq6Fx0MTIJ/view">
+                        <img src="arch.png" alt="Architecture Portfolio">
+                    </a>
+                    <h3>Architecture & Design</h3>
+                    <p>A curated selection of academic and professional architectural works focusing on urban integration.</p>
+                    <a href="https://drive.google.com/file/d/1WZdMR5rD5nolT-hlxYYTu5Uq6Fx0MTIJ/view">View Portfolio →</a>
+                </div>
 
-    <div class="card">
-      <a href="https://drive.google.com/file/d/1WZdMR5rD5nolT-hlxYYTu5Uq6Fx0MTIJ/view">
-        <img src="arch.png">
-      </a>
-      <h3>Architecture & Design</h3>
-      <p>Architecture portfolio from academic and professional projects.</p>
+                <div class="card">
+                    <h3>Writing & Translations</h3>
+                    <ul>
+                        <li><a href="https://medium.com/@akulim/">Medium (Data & Design)</a></li>
+                        <li><a href="littleprince1.html">Little Prince (EN–ID Translation)</a></li>
+                        <li><a href="oculus.html">The Latte Factor (Finance EN–ID)</a></li>
+                        <li><a href="news-jp.html">Real Estate News (JP–ID)</a></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            Let’s connect —
+            <a href="https://linkedin.com/in/milka-vincentiya/" target="_blank">
+                <i class="fa fa-linkedin"></i>
+            </a>
+            <a href="https://github.com/akulim" target="_blank">
+                <i class="fa fa-github"></i>
+            </a>
+        </footer>
+
     </div>
 
-    <div class="card">
-      <h3>Writing & Translations</h3>
-      <ul>
-        <li><a href="https://medium.com/@akulim/">Medium (Bahasa Indonesia)</a></li>
-        <li><a href="littleprince1.html">Little Prince (EN–ID)</a></li>
-        <li><a href="oculus.html">The Latte Factor (EN–ID)</a></li>
-        <li><a href="news-jp.html">Real Estate News (JP–ID)</a></li>
-      </ul>
-    </div>
+    <script>
+        // Intersection Observer for Scroll Animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: "0px 0px -50px 0px"
+        };
 
-  </div>
-</div>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("visible");
+                }
+            });
+        }, observerOptions);
 
-<footer>
-  Let’s connect —
-  <a href="https://linkedin.com/in/milka-vincentiya/">
-    <i class="fa fa-linkedin"></i>
-  </a>
-</footer>
-
-</div>
-
-<script>
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add("visible");
-    }
-  });
-}, { threshold: 0.15 });
-
-document.querySelectorAll(".project, .card").forEach((el) => {
-  observer.observe(el);
-});
-</script>
+        document.querySelectorAll(".project, .card").forEach((el) => {
+            observer.observe(el);
+        });
+    </script>
 
 </body>
 </html>
